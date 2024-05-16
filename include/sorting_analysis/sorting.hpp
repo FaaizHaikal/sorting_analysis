@@ -8,14 +8,16 @@ class Sorting
 {
   public:
     Sorting(const std::string & name);
-    void generate_data(int size);
-    virtual void sort();
+    virtual ~Sorting() = default;
+    static void generate_data(std::vector<int> & data, int size);
+    void start();
+    void set_data(const std::vector<int> & data);
+    virtual void sort() = 0;
 
   protected:
     double time;
     std::string algorithm_name;
     std::vector<int> unordered_data;
-    std::vector<int> ordered_data;
 };
 
 #endif
