@@ -5,8 +5,12 @@
 
 class QuickSort : public Sorting {
   public:
-      QuickSort() : Sorting("Quick Sort") {};
-      void sort() override;
+    QuickSort() : Sorting("Quick Sort") {};
+    void sort() override;
+  
+  private:
+    void quick_sort(int low, int high);
+    int partition(int low, int high);
 };
 
 #endif
