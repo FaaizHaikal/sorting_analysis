@@ -16,20 +16,31 @@ void Sorting::generate_data(std::vector<int> & data, int size)
   }
 }
 
-void Sorting::set_data(const std::vector<int> & data)
+void Sorting::set_data(const std::vector<int> data_)
 {
-  unordered_data = data;
+  data = data_;
+}
+
+void Sorting::print_data()
+{
+  for (int i = 0; i < data.size(); i++) {
+    printf("%d ", data[i]);
+  }
+
+  printf("\n");
 }
 
 void Sorting::start()
 {
+  print_data();
   auto start = std::chrono::high_resolution_clock::now();
 
   sort();
-  
+
   auto end = std::chrono::high_resolution_clock::now();
   
   time = std::chrono::duration_cast<std::chrono::duration<double>>(end - start).count();
 
-  std::cout << "Time taken by " << algorithm_name << " to sort " << unordered_data.size() << " elements: " << time << " seconds" << std::endl;
+  print_data();
+  std::cout << "Time taken by " << algorithm_name << " to sort " << data.size() << " elements: " << time << " seconds" << std::endl;
 }

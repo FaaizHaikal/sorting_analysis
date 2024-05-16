@@ -5,8 +5,11 @@
 
 class HeapSort : public Sorting {
   public:
-      HeapSort() : Sorting("Heap Sort") {};
-      void sort() override;
+    HeapSort() : Sorting("Heap Sort") {};
+    void sort() override;
+
+  private:
+    void heapify(int n, int i);
 };
 
 #endif
