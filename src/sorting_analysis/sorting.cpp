@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <chrono>
+#include <iomanip>
 
 Sorting::Sorting(const std::string & name)
 : time(0.0), algorithm_name(name)
@@ -32,7 +33,7 @@ void Sorting::print_data()
 
 void Sorting::start()
 {
-  print_data();
+  //print_data();
   auto start = std::chrono::high_resolution_clock::now();
 
   sort();
@@ -41,6 +42,7 @@ void Sorting::start()
   
   time = std::chrono::duration_cast<std::chrono::duration<double>>(end - start).count();
 
-  print_data();
-  std::cout << "Time taken by " << algorithm_name << " to sort " << data.size() << " elements: " << time << " seconds" << std::endl;
+  //print_data();
+  std::cout << "Time taken by " << algorithm_name << " to sort " << data.size() << " elements: " 
+            << std::fixed << std::setprecision(10) << time << " seconds" << std::endl;
 }
